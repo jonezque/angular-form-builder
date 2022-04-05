@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup">
+  <label>
+    email:
+    <input formControlName="email" />
+  </label>
+
+  <div *ngIf="hasFieldError('email', 'required')">email is required</div>
+  <div *ngIf="hasFieldError('email', 'email')">
+    this field is not valid email
+  </div>
+  <div *ngIf="hasFieldError('email', 'emailIsTaken')">
+    this email is already taken
+  </div>
+  <div *ngIf="getControl('email').pending">loading...</div>
+
+  <br />
+
+  <label>
+    password:
+    <input formControlName="password" type="password" />
+  </label>
+
+  <div *ngIf="hasFieldError('password', 'required')">password is required</div>
+  <div *ngIf="hasFieldError('password', 'minlength')">
+    at least 5 characters
+  </div>
+  <div *ngIf="hasFieldError('password', 'maxlength')">not more than 8</div>
+  <br />
+
+  <button [disabled]="formGroup.invalid || getControl('email').pending">
+    login
+  </button>
+</div>

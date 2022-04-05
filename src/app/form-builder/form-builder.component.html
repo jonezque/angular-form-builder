@@ -1,0 +1,14 @@
+<div [formGroup]="formGroup">
+  <ng-container formArrayName="projects">
+    <ng-container *ngFor="let project of projects.controls; let i = index">
+      <div [formGroup]="projectFromGroup(project)">
+        <input formControlName="id" />
+        <input formControlName="name" />
+      </div>
+      <button (click)="removeForm(i)">Delete</button>
+      <hr />
+    </ng-container>
+  </ng-container>
+
+  <button (click)="addForm()">Add Form</button>
+</div>
