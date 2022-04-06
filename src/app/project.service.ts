@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
-type Fields = 'id' | 'name';
-
 @Injectable({
   providedIn: 'root',
 })
-export class FormService {
+export class ProjectService {
   formGroup: FormGroup;
   index = 0;
 
@@ -30,11 +28,11 @@ export class FormService {
     return this.projects.controls[index] as FormGroup;
   }
 
-  addForm() {
+  addProject() {
     this.projects.push(this.createForm());
   }
 
-  removeForm(index: number) {
+  removeProject(index: number) {
     this.projects.removeAt(index);
   }
 

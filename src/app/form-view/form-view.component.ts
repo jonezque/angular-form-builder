@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormService } from '../form.service';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-form-view',
@@ -9,5 +9,5 @@ import { FormService } from '../form.service';
 export class FormViewComponent {
   index = 0;
   name = '';
-  constructor(public formService: FormService) {}
+  constructor(public projectService: ProjectService) {}
 }

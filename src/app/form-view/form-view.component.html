@@ -2,13 +2,15 @@
 <hr />
 
 <label> enter form index: <input [(ngModel)]="index" /> </label>
-<ng-container *ngIf="formService.projectFromGroupByIndex(index); let project">
+<ng-container
+  *ngIf="projectService.projectFromGroupByIndex(index); let project"
+>
   <div [formGroup]="project">
     <ng-container
-      *ngFor="let control of formService.projectFromGroupControls(project)"
+      *ngFor="let control of projectService.projectFromGroupControls(project)"
     >
       <label>
-        <span style="width: 50px;display: inline-block;">{{ control }}</span>
+        <span style="width: 100px;display: inline-block;">{{ control }}</span>
         <input [formControlName]="control" />
       </label>
       <br />
@@ -17,5 +19,5 @@
   <hr />
 
   <label>control name:<input [(ngModel)]="name" /> </label>
-  <button (click)="formService.addControl(project, name)">add</button>
+  <button (click)="projectService.addControl(project, name)">add</button>
 </ng-container>

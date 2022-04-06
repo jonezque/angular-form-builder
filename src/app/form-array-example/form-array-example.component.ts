@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormService } from '../form.service';
+import { Component } from '@angular/core';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-form-array-example',
@@ -8,8 +8,8 @@ import { FormService } from '../form.service';
 })
 export class FormArrayExampleComponent {
   get projects() {
-    return this.formService.projects;
+    return this.projectService.projects;
   }
 
-  constructor(public formService: FormService) {}
+  constructor(public projectService: ProjectService) {}
 }
