@@ -1,0 +1,29 @@
+<a routerLink="/form-view"> link to single form view </a>
+<hr />
+
+<div [formGroup]="formService.formGroup">
+  <ng-container formArrayName="projects">
+    <ng-container
+      *ngFor="let project of formService.projects.controls; let i = index"
+    >
+      <div [formGroup]="formService.projectFromGroup(project)">
+        <ng-container
+          *ngFor="let control of formService.projectFromGroupControls(project)"
+        >
+          <label>
+            <span style="width: 50px;display: inline-block;">{{
+              control
+            }}</span>
+            <input [formControlName]="control" />
+          </label>
+          <br />
+        </ng-container>
+      </div>
+      <button (click)="formService.removeForm(i)">Delete</button>
+      <hr />
+    </ng-container>
+  </ng-container>
+</div>
+
+<button (click)="formService.addForm()">Add Form</button>
+<hr />

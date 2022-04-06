@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
+type Fields = 'id' | 'name';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,12 +22,24 @@ export class FormService {
     return project as FormGroup;
   }
 
+  projectFromGroupControls(project: any) {
+    return Object.keys(this.projectFromGroup(project).controls);
+  }
+
+  projectFromGroupByIndex(index: number) {
+    return this.projects.controls[index] as FormGroup;
+  }
+
   addForm() {
     this.projects.push(this.createForm());
   }
 
   removeForm(index: number) {
     this.projects.removeAt(index);
+  }
+
+  addControl(project: FormGroup, controlName: string) {
+    project.addControl(controlName, this.fb.control(''));
   }
 
   private createForm() {

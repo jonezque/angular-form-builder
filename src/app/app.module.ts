@@ -5,11 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FormExampleComponent } from './form-example/form-example.component';
-import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { FormArrayExampleComponent } from './form-array-example/form-array-example.component';
+import { FormViewComponent } from './form-view/form-view.component';
 
 const routes: Routes = [
   { path: '', component: FormExampleComponent },
-  { path: 'form-builder', component: FormBuilderComponent },
+  { path: 'form-array', component: FormArrayExampleComponent },
+  { path: 'form-view', component: FormViewComponent },
 ];
 
 @NgModule({
@@ -19,7 +21,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
   ],
-  declarations: [AppComponent, FormExampleComponent, FormBuilderComponent],
+  declarations: [
+    AppComponent,
+    FormExampleComponent,
+    FormArrayExampleComponent,
+    FormViewComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
