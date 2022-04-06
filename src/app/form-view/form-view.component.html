@@ -11,7 +11,14 @@
     >
       <label>
         <span style="width: 100px;display: inline-block;">{{ control }}</span>
-        <input [formControlName]="control" />
+        <ng-container [ngSwitch]="control">
+          <input
+            *ngSwitchCase="'password'"
+            [formControlName]="control"
+            type="password"
+          />
+          <input *ngSwitchDefault [formControlName]="control" />
+        </ng-container>
       </label>
       <br />
     </ng-container>
